@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.1.66, for redhat-linux-gnu (x86_64)
 --
--- Host: mysql.eecs.oregonstate.edu    Database: CS275
+-- Host: mysql.engr.oregonstate.edu    Database: cs340
 -- ------------------------------------------------------
 -- Server version	5.1.65-community-log
 
@@ -72,7 +72,7 @@ CREATE TABLE `class` (
   PRIMARY KEY (`course_id`),
   KEY `professor` (`professor`),
   CONSTRAINT `class_ibfk_1` FOREIGN KEY (`professor`) REFERENCES `professor` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `class_ibfk_2` FOREIGN KEY (`building_name`) REFERENCES `building` (`name`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `class_ibfk_2` FOREIGN KEY (`building_name`) REFERENCES `buildings` (`name`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -93,10 +93,10 @@ CREATE TABLE `students_classes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-DROP TABLE IF EXISTS `building`;
+DROP TABLE IF EXISTS `buildings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `building` (
+CREATE TABLE `buildings` (
   `name` varchar(5) NOT NULL,
   `rooms` int(5),
   PRIMARY KEY (`name`)
@@ -111,4 +111,3 @@ CREATE TABLE `building` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-02-04 12:54:40
