@@ -1,0 +1,19 @@
+<html>
+    <form id="login" action="/students.js" method="GET">
+    <legend>Login</legend>
+    Id Number: <input id= 'student_id' type= 'number' name= 'student_login_id_value' value=""> <br>
+    <input type = "submit" value="Login">
+    </form>
+    <br>
+    <form id="signup" action="../students.js" method="POST">
+    <legend>Sign Up</legend>
+    Name: <input id='name' type= "text" name ='student_signup_name' value =""> <br>
+    Major: <input id='major' type="text" name ='student_signup_major' value =''><br>
+    Residence Hall <select name='Residence Hall'>
+        {{#each building}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</html>
